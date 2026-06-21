@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>爱游戏 · 游戏知识库导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f5f9fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 24px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: left;
+            margin-bottom: 40px;
+            border-left: 5px solid #2b7f7f;
+            padding-left: 18px;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #143b3b;
+            margin-bottom: 6px;
+        }
+
+        .page-header .sub {
+            font-size: 1rem;
+            color: #3e6b6b;
+            opacity: 0.8;
+            font-weight: 350;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 26px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0, 50, 50, 0.04);
+            border: 1px solid #ddecec;
+        }
+
+        .intro-card p {
+            font-size: 1.02rem;
+            margin-bottom: 16px;
+            color: #264343;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 20px;
+            border: 1px solid #d2e7e7;
+            transition: box-shadow 0.2s ease, transform 0.15s ease;
+            box-shadow: 0 4px 12px rgba(35, 90, 90, 0.03);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(35, 100, 100, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 480;
+            margin-bottom: 10px;
+            color: #1a5454;
+            border-bottom: 2px solid #b7d9d9;
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2a4a4a;
+            margin-top: 10px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #eaf4f4;
+            color: #1a5e5e;
+            font-size: 0.75rem;
+            padding: 3px 12px;
+            border-radius: 40px;
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .info-panel {
+            background: #e9f3f3;
+            border-radius: 28px;
+            padding: 30px 28px;
+            margin-bottom: 44px;
+            border: 1px solid #c7dfdf;
+        }
+
+        .info-panel h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #104444;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-panel li {
+            padding: 10px 0;
+            border-bottom: 1px solid #c2dcdc;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.98rem;
+            color: #1e3f3f;
+        }
+
+        .info-panel li:last-child {
+            border-bottom: none;
+        }
+
+        .info-panel li::before {
+            content: "▹";
+            color: #2b7f7f;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .tip-area {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 24px;
+            margin-bottom: 40px;
+            border-left: 5px solid #379494;
+            box-shadow: 0 4px 10px rgba(0, 60, 60, 0.02);
+        }
+
+        .tip-area h4 {
+            font-size: 1.15rem;
+            font-weight: 460;
+            color: #125353;
+            margin-bottom: 10px;
+        }
+
+        .tip-area p {
+            color: #2e5050;
+            font-size: 0.96rem;
+        }
+
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            margin-top: 14px;
+        }
+
+        .faq-mini .qa {
+            flex: 1 1 200px;
+            background: #f4fbfb;
+            padding: 12px 15px;
+            border-radius: 14px;
+        }
+
+        .faq-mini .qa .q {
+            font-weight: 500;
+            color: #0f4747;
+            font-size: 0.93rem;
+        }
+
+        .faq-mini .qa .a {
+            font-size: 0.88rem;
+            color: #2b5c5c;
+            margin-top: 4px;
+            opacity: 0.8;
+        }
+
+        .link-sentence {
+            background: #ffffff;
+            border-radius: 60px;
+            padding: 16px 26px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 32px auto;
+            border: 1px solid #cae0e0;
+            font-size: 1rem;
+            color: #1d4444;
+        }
+
+        .link-sentence a {
+            color: #1b6b6b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #8ac2c2;
+            transition: border-color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #145c5c;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px 0 16px;
+            font-size: 0.82rem;
+            color: #558080;
+            border-top: 1px solid #d2e5e5;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 16px 14px;
+            }
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+            .intro-card {
+                padding: 20px 18px;
+            }
+            .card {
+                padding: 18px 16px;
+            }
+            .info-panel {
+                padding: 22px 18px;
+            }
+            .link-sentence {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>知识库 · 爱游戏</h1>
+        <div class="sub">关于主题内容、场景与信息的汇集</div>
+    </header>
+
+    <section class="intro-card">
+        <p>
+            游戏的世界从不止于娱乐。在“爱游戏”这个关键词背后，藏着的是对机制、叙事、美术以及玩家社群的持续观察与理解。无论你是想梳理某款作品的脉络，还是希望找到某一类型的设计思路，这里提供的并不是简单的推荐列表，而是一组可被检索、对照和延展的知识片段。
+        </p>
+        <p>
+            我们不以热度排行定义价值，更愿意把目光投向那些在玩法、文化或情感层面留下真实痕迹的作品。每一款游戏都像一扇门，通往特定的思维方式和审美体验。而<a href="https://main-site-aiyouxi.com.cn">爱游戏</a>所承载的，正是这样一种带着克制的热情——去看见、去理解，而不只是消费。
+        </p>
+    </section>
+
+    <div class="grid-cards">
+        <div class="card">
+            <h3>机制笔记</h3>
+            <p>从规则设计到交互反馈，拆解不同游戏的内核逻辑。既有经典回合制的决策层次，也有即时策略中的资源博弈。</p>
+            <span class="tag">系统设计</span>
+        </div>
+        <div class="card">
+            <h3>叙事切片</h3>
+            <p>关注游戏如何用环境、对白和任务结构传递故事。并非所有剧情都需要过场动画，有些故事藏在道具描述里。</p>
+            <span class="tag">文本与语境</span>
+        </div>
+        <div class="card">
+            <h3>美学记录</h3>
+            <p>像素、水彩、低多边形、手绘……视觉风格不只是包装，它直接塑造了玩家的沉浸感与记忆锚点。</p>
+            <span class="tag">视觉语言</span>
+        </div>
+        <div class="card">
+            <h3>社群回声</h3>
+            <p>玩家二创、速通文化、模组生态与讨论氛围。游戏的生命力往往在发售之后才真正显现。</p>
+            <span class="tag">文化观察</span>
+        </div>
+    </div>
+
+    <section class="info-panel">
+        <h2>▎ 相关信息区</h2>
+        <ul>
+            <li><strong>分类索引</strong> —— 按题材、年代、机制标签整理，方便交叉检索与对比阅读。</li>
+            <li><strong>术语简释</strong> —— 收录常用游戏设计词汇与玩家黑话，降低新读者的理解门槛。</li>
+            <li><strong>参考来源</strong> —— 每篇内容均标注参考访谈、开发日志或学术论文，可回溯验证。</li>
+            <li><strong>更新日志</strong> —— 记录每次内容增补与修订，保持知识库的透明与可追溯性。</li>
+        </ul>
+    </section>
+
+    <section class="tip-area">
+        <h4>⏺ 提示区</h4>
+        <p>如果你正在寻找某个具体游戏的系统分析或文化背景，可以先利用分类索引定位；若是偶然到访，也不妨从任一张卡片读起。知识库不求大而全，更希望每一段内容都经得起重读与推敲。</p>
+        <div class="faq-mini">
+            <div class="qa">
+                <div class="q">内容多久更新一次？</div>
+                <div class="a">每月至少补充 2～3 篇新条目，同时修订既有文本。</div>
+            </div>
+            <div class="qa">
+                <div class="q">是否接受投稿？</div>
+                <div class="a">目前以内部编撰为主，未来会开放建议通道。</div>
+            </div>
+            <div class="qa">
+                <div class="q">可以转载内容吗？</div>
+                <div class="a">标注来源后允许非商业转载，具体见每页底部的许可说明。</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="link-sentence">
+        <span>如果你希望了解更完整的主题脉络，可以访问 <a href="https://main-site-aiyouxi.com.cn">爱游戏</a> 主站。</span>
+    </div>
+
+    <footer class="footer">
+        <span>记录 · 整理 · 克制地热爱</span>
+    </footer>
+
+</body>
+</html>
