@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>幸运飞艇 · 索引与对照参考页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      line-height: 1.65;
+      color: #1e2a3a;
+    }
+
+    /* 深色头图（hero） */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #142b44 100%);
+      padding: 6rem 2rem 5.5rem;
+      text-align: center;
+      color: #e7edf5;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #3b7ebf; /* 强调色 */
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span {
+      color: #7db4e6;
+      font-weight: 400;
+    }
+
+    .hero .lead {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #b8cfec;
+      line-height: 1.7;
+    }
+
+    /* 浅色正文区 */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4.5rem;
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    /* 承接段落 */
+    .intro {
+      margin-bottom: 2.8rem;
+    }
+
+    .intro p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 特点列表 — 索引式卡片 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-item {
+      border-left: 3px solid #3b7ebf;
+      padding-left: 1.2rem;
+      background: #f9fbfe;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.2rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item p {
+      font-size: 0.94rem;
+      color: #3d5068;
+      margin: 0;
+    }
+
+    /* 场景与延伸阅读 */
+    .scene-block {
+      background: #f3f7fe;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      margin: 2.5rem 0 2.2rem;
+    }
+
+    .scene-block h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #0b1a2e;
+    }
+
+    .scene-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .scene-block li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #dfe6f0;
+      font-size: 0.98rem;
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .scene-block li:last-child {
+      border-bottom: none;
+    }
+
+    .scene-block li::before {
+      content: '▹';
+      color: #3b7ebf;
+      margin-right: 0.6rem;
+      font-weight: 600;
+    }
+
+    /* 提示 / 摘要卡片 */
+    .tip-card {
+      background: #fefefe;
+      border: 1px solid #e2eaf2;
+      border-radius: 12px;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      margin: 2.2rem 0 2rem;
+    }
+
+    .tip-card p {
+      font-size: 0.98rem;
+      color: #2b3f57;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #1d6fb0;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #0a4c7c;
+      border-bottom-color: #0a4c7c;
+    }
+
+    /* 温和结尾 */
+    .gentle-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #dce4ef;
+      font-size: 0.95rem;
+      color: #52647a;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .gentle-footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    .gentle-footer small {
+      display: block;
+      margin-top: 0.8rem;
+      color: #7a8ba0;
+      font-size: 0.85rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 650px) {
+      .hero {
+        padding: 4rem 1.5rem 4rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .content-wrap {
+        padding: 2rem 1.2rem 3rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .scene-block {
+        padding: 1.4rem 1.2rem;
+      }
+
+      .tip-card {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero .lead {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>对照 · <span>飞艇</span></h1>
+    <p class="lead">日常查询与延伸阅读的轻索引页，<br>专注信息密度，而非浮于表面的引导。</p>
+  </section>
+
+  <!-- 浅色正文区 -->
+  <main class="content-wrap">
+
+    <!-- 开场短句 + 承接段落 -->
+    <div class="intro">
+      <p>
+        每天面对大量编号、走势与开奖记录，查询效率往往取决于工具和习惯。把碎片数据整理成可回溯的结构，是许多参与者的日常功课。<a href="https://index-xyft.com">幸运飞艇</a>作为一类高频参考对象，其历史数据、玩法分类与对照逻辑，值得用更系统的方式拆解。
+      </p>
+      <p>
+        本页不求替代任何专业平台，只聚焦于「查阅」这个动作本身：如何快速定位所需信息，如何对比不同时段数据，以及如何在扩展阅读中降低理解成本。
+      </p>
+    </div>
+
+    <!-- 特点列表（索引式） -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>编号对照</h3>
+        <p>按期号、时间戳或自定义标签检索，减少手动翻找的遗漏。</p>
+      </div>
+      <div class="feature-item">
+        <h3>区间对比</h3>
+        <p>将连续多期数据并列展示，便于观察频次与间隔分布。</p>
+      </div>
+      <div class="feature-item">
+        <h3>筛选标签</h3>
+        <p>按特定规则（奇偶、大数、区间）标记条目，加速二次筛选。</p>
+      </div>
+      <div class="feature-item">
+        <h3>延伸引用</h3>
+        <p>关联常见术语与简易统计方法，方便对照时自行校验。</p>
+      </div>
+    </div>
+
+    <!-- 场景模块：日常查询与延伸阅读 -->
+    <div class="scene-block">
+      <h2>日常查询 · 三种常见场景</h2>
+      <ul>
+        <li><strong>横向对照</strong> — 同时展示近几十期数据，用分栏对比找出重复模式或断点。</li>
+        <li><strong>纵向追溯</strong> — 以某一期为中心向两侧延伸，查看其前后关联时段。</li>
+        <li><strong>快速摘要</strong> — 提取指定范围内的极值、连续走势或空缺区间，形成简短参考。</li>
+      </ul>
+      <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #415879;">
+        这些场景的共同点是：需要一份干净、可灵活筛选的数据骨架，把注意力集中在对照本身。
+      </p>
+    </div>
+
+    <!-- 提示卡片（FAQ 摘要风格） -->
+    <div class="tip-card">
+      <p><strong>📌 一点提示</strong><br>
+      任何对照都应以公开来源或自身记录为基础，保持对数据呈现方式的审慎。延伸阅读时，可以关注时间跨度、分组逻辑与统计口径，这些细节往往影响结论的适用范围。本页仅作为参考思路，具体查询可优先使用熟悉的工具或可信站点，例如 <a href="https://index-xyft.com">幸运飞艇</a> 相关的常规索引页。</p>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+      <p>把查询变成一种有结构的习惯，比等待一个精准预测更实际。<br>
+      每次对照都是一次信息整理，而整理本身即是一种理解。</p>
+      <small>本页为内容示例页，不构成任何操作建议。数据有风险，对照需自行判断。</small>
+    </div>
+
+  </main>
+
+</body>
+</html>
